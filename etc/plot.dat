@@ -1,0 +1,22 @@
+set datafile separator ","
+set xdata time
+set timefmt '%H:%M:%S'
+set format x '%H:%M:%S'
+set title "Validated Ledger Duration"
+set xlabel "Timestamp in H:M:S"
+set ylabel "Validated Ledger Sequence"
+set x2label "Age in sec"
+set grid
+set style line 1 \
+    linecolor rgb '#0060ad' \
+    linetype 1 linewidth 2 \
+    pointtype 7 pointsize 1.5
+set format y "%f"
+set yrange [*:*]
+set ytics 0,1
+set xrange [*:*]
+set xtics 0,10
+set x2range [0:10]
+set x2tics 0,1
+plot "<(sed -n '1,21p' output/plot.csv)" using 2:1 axes x1y1 title "Validated Ledger Sequence" with linespoints linestyle 1, \
+     "" using 3:1 axes x2y1 title "Validated Ledger/Age" with p ps 2 pointtype 6 lc rgb "red"
