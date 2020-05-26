@@ -11,10 +11,15 @@ git clone https://github.com/deepakkukreja1985/Validated-Ledger-Project.git
 Requirements
 
 •	Ubuntu 16.04
+
 •	BASH Shell
+
 •	CURL version 7.47.0
+
 •	JQ version 1.5.1
+
 •	Gnuplot 5.0
+
 •	Bats 0.4.0 (Bash Automated Test System)
 
 How to Execute:
@@ -24,4 +29,5 @@ How to Execute:
 Documentation
 
 You can find detail documentation in “/doc” folder
+
 https://github.com/deepakkukreja1985/Validated-Ledger-Project/tree/master/doc
