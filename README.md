@@ -24,6 +24,8 @@ Requirements
 
 How to Execute:
 
+cd Validated-Ledger-Project/
+
 ./scripts/validated_ledger.sh
 
 Documentation
