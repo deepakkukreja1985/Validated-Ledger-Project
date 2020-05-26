@@ -113,7 +113,7 @@ CFG_SAMPLE_CNT=$CONFIG_SERVER_SAMPLE_COUNT
 #########################################################
 
 error_exit() {
-  echo -e "${PROGNAME}: ${1:- "Unknown Error"}" &>> $LOG_FILE
+  echo -e "${PROGNAME}: ${1:- "Unknown Error"}"
   exit $FALSE
 }
 
@@ -442,6 +442,9 @@ else
   # Read Config File to update environment variables
   read_cfg_file
 
+  echo Script Execution in progress!
+  echo Output graph will be open shortly
+
   # calculate polling interval
   if [ -e "${SCRIPT_DIR}/calculate_polling.sh" ]; then 
     # execute polling interval which call serverinfo command repeatedly 
@@ -452,7 +455,7 @@ else
     ${SCRIPT_DIR}/calculate_polling.sh ${CFG_URL} ${CFG_COMMAND} ${CFG_MAX_REDIRECT} ${CFG_SAMPLE_CNT}
 
     if [ "$?" -ne "$TRUE" ]; then
-      error_exit "Error: running calculate_polling.sh script"
+      error_exit "Error: calculate_polling.sh script failed"
     fi
   else
     error_exit "Error: calculate_polling.sh script missing"

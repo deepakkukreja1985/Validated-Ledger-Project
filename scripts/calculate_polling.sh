@@ -46,7 +46,7 @@ POLLING_INTERVAL=0
 # Perform pre-exit housekeeping
 # error exit in case of error
 error_exit() {
-  echo -e "${PROGNAME}: ${1:- "Unknown Error"}" &>> $LOG_FILE
+  echo -e "${PROGNAME}: ${1:- "Unknown Error"}"
   exit $FALSE
 }
 
@@ -205,11 +205,11 @@ if [ "$?" -eq ${TRUE} ]; then
   # overwrite the value of parameter in config file
   sed -i "s/^CONFIG_SERVER_POLLING_INTERVAL=.*$/CONFIG_SERVER_POLLING_INTERVAL=$POLLING_INTERVAL/g" $CNF_FILE
   if [ "$?" -ne ${TRUE} ]; then
-    error_exit "Error: Polling api Failed"
+    error_exit "Error: sed failed to overwrite parameter in config file"
   fi
 
 else
-  error_exit "Error: Polling api Failed"
+  error_exit "Error: calculate polling interval algorithm failed"
 fi
 
 graceful_exit
