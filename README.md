@@ -28,6 +28,21 @@ cd Validated-Ledger-Project/
 
 ./scripts/validated_ledger.sh
 
+How to Execute BATS Test Suite:
+
+cd scripts/
+
+./install-bats-libs.sh
+
+above step will download required libs in test folder
+
+mkdir test/tmp
+
+./test/preexecution.bats     
+
+./test/postexecution.bats
+
+
 Documentation
 
 You can find detail documentation in “/doc” folder
