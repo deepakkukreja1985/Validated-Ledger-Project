@@ -10,7 +10,6 @@ TEST_SCRIPT="$BASE_DIR/scripts/validated_ledger.sh"
 POLLING_SCRIPT="$BASE_DIR/scripts/calculate_polling.sh"
 CONFIG_FILE="$BASE_DIR/etc/validated_ledger.conf"
 
-
 @test "check if config dir exist" {
   run ls $BASE_DIR/etc
   [ $status -eq 0 ]
@@ -65,10 +64,11 @@ CONFIG_FILE="$BASE_DIR/etc/validated_ledger.conf"
   URL=https://s1.ripple.com:51234/
   CMD=server_info
   MAX=1
+  DOWN_TIME=4
   CNT=4
   interval=3
 
-  run $BASE_DIR/scripts/validated_ledger.sh $URL $CMD $MAX $CNT $interval
+  run $BASE_DIR/scripts/validated_ledger.sh $URL $CMD $MAX $DOWN_TIME $CNT $interval
   [ $status -eq 0 ]
 }
 

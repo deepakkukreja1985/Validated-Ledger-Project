@@ -429,14 +429,15 @@ echo AUTHOR = $AUTHOR &>> $LOG_FILE
 echo EMAIL = $EMAIL_ADDRESS &>> $LOG_FILE
 echo PROGNAME = $PROGNAME &>> $LOG_FILE
 
-if [ "$#" -eq 5 ]; then
+if [ "$#" -eq 6 ]; then
   # Test code : Automated test executed by postexecution.bats file
   echo "Test Execution: " &>> $LOG_FILE
   CFG_URL=$1
   CFG_COMMAND=$2
   CFG_MAX_REDIRECT=$3
-  CFG_POLLING_CNT=$4
-  poll_interval=$5
+  CFG_CHK_SERVER_CNT=$4
+  CFG_POLLING_CNT=$5
+  poll_interval=$6
 
 else
   # Read Config File to update environment variables
