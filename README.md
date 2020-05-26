@@ -36,6 +36,8 @@ cd scripts/
 
 above step will download required libs in test folder
 
+cd ../
+
 mkdir test/tmp
 
 ./test/preexecution.bats     
